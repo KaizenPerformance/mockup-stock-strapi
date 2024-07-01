@@ -54,8 +54,11 @@
       "required": true
     },
     "file": {
-      "type": "string",
-      "required": true
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
