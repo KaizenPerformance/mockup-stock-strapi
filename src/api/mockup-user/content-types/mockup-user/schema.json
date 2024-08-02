@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mockup_users",
+  "info": {
+    "singularName": "mockup-user",
+    "pluralName": "mockup-users",
+    "displayName": "MockupUser"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "fullname": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

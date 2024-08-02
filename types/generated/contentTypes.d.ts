@@ -381,10 +381,12 @@ export interface ApiMockupMockup extends Schema.CollectionType {
         'Metr\u00F4',
         'Esta\u00E7\u00E3o de Trem',
         'Mobili\u00E1rio Urbano',
-        'Aeroporto'
+        'Aeroporto',
+        'Rel\u00F3gio de Rua',
+        'Toten/mub',
+        'Ponto de \u00D4nibus'
       ]
     >;
-    author: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
     license: Attribute.Enumeration<
       [
@@ -409,6 +411,36 @@ export interface ApiMockupMockup extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::mockup.mockup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMockupUserMockupUser extends Schema.CollectionType {
+  collectionName: 'mockup_users';
+  info: {
+    singularName: 'mockup-user';
+    pluralName: 'mockup-users';
+    displayName: 'MockupUser';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Required;
+    fullname: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mockup-user.mockup-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mockup-user.mockup-user',
       'oneToOne',
       'admin::user'
     > &
@@ -853,6 +885,7 @@ declare module '@strapi/types' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::mockup.mockup': ApiMockupMockup;
+      'api::mockup-user.mockup-user': ApiMockupUserMockupUser;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -30,12 +30,11 @@
         "Metrô",
         "Estação de Trem",
         "Mobiliário Urbano",
-        "Aeroporto"
+        "Aeroporto",
+        "Relógio de Rua",
+        "Toten/mub",
+        "Ponto de Ônibus"
       ]
-    },
-    "author": {
-      "type": "string",
-      "required": true
     },
     "description": {
       "type": "text",
@@ -54,11 +53,12 @@
       "required": true
     },
     "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
