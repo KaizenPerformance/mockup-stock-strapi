@@ -362,92 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiMockupMockup extends Schema.CollectionType {
-  collectionName: 'mockups';
-  info: {
-    singularName: 'mockup';
-    pluralName: 'mockups';
-    displayName: 'Mockup';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    coverImage: Attribute.Media & Attribute.Required;
-    category: Attribute.Enumeration<
-      [
-        'Metr\u00F4',
-        'Esta\u00E7\u00E3o de Trem',
-        'Mobili\u00E1rio Urbano',
-        'Aeroporto',
-        'Rel\u00F3gio de Rua',
-        'Toten/mub',
-        'Ponto de \u00D4nibus'
-      ]
-    >;
-    description: Attribute.Text & Attribute.Required;
-    license: Attribute.Enumeration<
-      [
-        'Gratuito para Uso Pessoal',
-        'Gratuito para Uso Comercial',
-        'Pago',
-        'Dom\u00EDnio P\u00FAblico',
-        'Licen\u00E7a Personalizada'
-      ]
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'Gratuito para Uso Pessoal'>;
-    file: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::mockup.mockup',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::mockup.mockup',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiMockupUserMockupUser extends Schema.CollectionType {
-  collectionName: 'mockup_users';
-  info: {
-    singularName: 'mockup-user';
-    pluralName: 'mockup-users';
-    displayName: 'MockupUser';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    email: Attribute.String & Attribute.Required;
-    fullname: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::mockup-user.mockup-user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::mockup-user.mockup-user',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -874,6 +788,92 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiMockupMockup extends Schema.CollectionType {
+  collectionName: 'mockups';
+  info: {
+    singularName: 'mockup';
+    pluralName: 'mockups';
+    displayName: 'Mockup';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    coverImage: Attribute.Media & Attribute.Required;
+    category: Attribute.Enumeration<
+      [
+        'Metr\u00F4',
+        'Esta\u00E7\u00E3o de Trem',
+        'Mobili\u00E1rio Urbano',
+        'Aeroporto',
+        'Rel\u00F3gio de Rua',
+        'Toten/mub',
+        'Ponto de \u00D4nibus'
+      ]
+    >;
+    description: Attribute.Text & Attribute.Required;
+    license: Attribute.Enumeration<
+      [
+        'Gratuito para Uso Pessoal',
+        'Gratuito para Uso Comercial',
+        'Dom\u00EDnio P\u00FAblico',
+        'Licen\u00E7a Personalizada'
+      ]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'Gratuito para Uso Pessoal'>;
+    file: Attribute.Media;
+    shortDescription: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mockup.mockup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mockup.mockup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMockupUserMockupUser extends Schema.CollectionType {
+  collectionName: 'mockup_users';
+  info: {
+    singularName: 'mockup-user';
+    pluralName: 'mockup-users';
+    displayName: 'MockupUser';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    email: Attribute.String & Attribute.Required;
+    fullname: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mockup-user.mockup-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mockup-user.mockup-user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -884,8 +884,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::mockup.mockup': ApiMockupMockup;
-      'api::mockup-user.mockup-user': ApiMockupUserMockupUser;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -894,6 +892,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::mockup.mockup': ApiMockupMockup;
+      'api::mockup-user.mockup-user': ApiMockupUserMockupUser;
     }
   }
 }

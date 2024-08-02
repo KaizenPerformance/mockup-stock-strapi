@@ -45,7 +45,6 @@
       "enum": [
         "Gratuito para Uso Pessoal",
         "Gratuito para Uso Comercial",
-        "Pago",
         "Domínio Público",
         "Licença Personalizada"
       ],
@@ -59,6 +58,9 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "shortDescription": {
+      "type": "string"
     }
   }
 }
