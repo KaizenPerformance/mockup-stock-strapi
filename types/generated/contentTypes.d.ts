@@ -805,8 +805,6 @@ export interface ApiMockupMockup extends Schema.CollectionType {
     category: Attribute.Enumeration<
       [
         'Metr\u00F4',
-        'Esta\u00E7\u00E3o de Trem',
-        'Mobili\u00E1rio Urbano',
         'Aeroporto',
         'Rel\u00F3gio de Rua',
         'Toten/mub',

@@ -28,8 +28,6 @@
       "type": "enumeration",
       "enum": [
         "Metrô",
-        "Estação de Trem",
-        "Mobiliário Urbano",
         "Aeroporto",
         "Relógio de Rua",
         "Toten/mub",
