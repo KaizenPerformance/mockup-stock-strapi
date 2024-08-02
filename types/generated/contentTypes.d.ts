@@ -801,7 +801,7 @@ export interface ApiMockupMockup extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    coverImage: Attribute.Media & Attribute.Required;
+    coverImage: Attribute.Media<'images'> & Attribute.Required;
     category: Attribute.Enumeration<
       [
         'Metr\u00F4',
@@ -824,7 +824,7 @@ export interface ApiMockupMockup extends Schema.CollectionType {
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Gratuito para Uso Pessoal'>;
-    file: Attribute.Media;
+    file: Attribute.Media<'files'>;
     shortDescription: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
