@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mockups",
+  "info": {
+    "singularName": "mockup",
+    "pluralName": "mockups",
+    "displayName": "Mockup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Metrô",
+        "Estação de Trem",
+        "Mobiliário Urbano",
+        "Aeroporto",
+        "Relógio de Rua",
+        "Toten/mub",
+        "Ponto de Ônibus"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "license": {
+      "type": "enumeration",
+      "enum": [
+        "Gratuito para Uso Pessoal",
+        "Gratuito para Uso Comercial",
+        "Domínio Público",
+        "Licença Personalizada"
+      ],
+      "default": "Gratuito para Uso Pessoal",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "shortDescription": {
+      "type": "string"
+    }
+  }
+}
