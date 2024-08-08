@@ -61,6 +61,11 @@
     },
     "shortDescription": {
       "type": "string"
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
     }
   }
 }

@@ -826,6 +826,11 @@ export interface ApiMockupMockup extends Schema.CollectionType {
       Attribute.DefaultTo<'Gratuito para Uso Pessoal'>;
     file: Attribute.Media;
     shortDescription: Attribute.String;
+    city: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
